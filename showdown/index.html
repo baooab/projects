@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>showdown.js Demo</title>
+
+	<script type="text/javascript">
+
+	</script>
+
+	<style type="text/css">
+		body {
+			font-family: 'Lucida Console';
+			font-size: 14px;
+		}
+		
+		pre {
+			padding: 9.5px;
+		    margin: 0 0 30px;
+		    font-size: 13px;
+		    word-break: break-all;
+		    word-wrap: break-word;
+		    white-space: pre-wrap;
+		    color: #eee;
+		    background-color: #2f2f2f;
+		    border: 1px solid rgba(0,0,0,.15);
+		    border-radius: 2px;
+		}
+
+		code {
+		    display: inline-block;
+		    padding-left: 5px;
+		    padding-right: 5px;
+		    font-size: 120%;
+		    background-color: pink;
+		    border-radius: 5px;
+		    margin: auto 3px;
+		    font-family:'Lucida Console';
+		    text-shadow: 0 1px 1px #FFF;
+		}
+
+		img {
+			border: 0.3em solid #e0dfcc;
+   		    border-radius: 1em;
+   		    width: 100%;
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="markdownContainer" style="margin:0 auto;width: 695px;">
+		<textarea id="markdownTextarea" cols="96" rows="10">
+## jQuery整体架构
+
+jQuery一共13个模块，从2.1版开始jQuery支持通过AMD模块划分，jQuery在最开始发布的1.0版本是很简单的，只有CSS选择符、事件处理和AJAX交互3大块。其发展过程中，有几次重要的变革：
+
+<pre>
+☑  1.2.3 版发布，引入数据缓存，解决循环引用与大数据保存的问题
+☑  1.3 版发布，它使用了全新的选择符引擎Sizzle，在各个浏览器下全面超越其他同类型JavaScript框架的查询速度，程序库的性能也因此有了极大提升
+☑  1.5 版发布，新增延缓对像(Deferred Objects)，并用deferred重写了Ajax模块
+☑  1.7 版发布，抽象出回调对象，提供了强大的的方式来管理回调函数列表。
+</pre>
+
+### 五大块
+
+jQuery按我的理解分为五大块，选择器、DOM操作、事件、AJAX与动画。
+
+<pre>
+// 简单点
+;(function(){
+
+}());
+
+// 复杂点
+;(function(global, factory){
+	factory(global);
+}(window, function(window, noGlobal){
+
+}));
+
+// 再复杂点
+;(function(global, factory){
+	factory(global);
+}(typeof window !== "undefined" ? window : this, function(window, noGlobal){
+	    var jQuery = function( selector, context ) {
+			return new jQuery.fn.init( selector, context );
+		};
+		jQuery.fn = jQuery.prototype = {};
+		// 核心方法
+		// 回调系统
+		// 异步队列
+		// 数据缓存
+		// 队列操作
+		// 选择器引
+		// 属性操作
+		// 节点遍历
+		// 文档处理
+		// 样式操作
+		// 属性操作
+		// 事件体系
+		// AJAX交互
+		// 动画引擎
+		return jQuery;
+}));
+</pre>
+
+### jQuery Ajax
+
+Ajax的高层方法都统一调用了jQuery.ajax这个静态方法。
+
+<pre>
+jQuery.each( ['get', 'post'], function( i, method) {
+	jQuery[ method ] = function( url, data, callback, type ) {
+		// Shift arguments if data argument was omitted
+		if ( jQuery.isFunction( data ) ) {
+			type     = type || callback;
+			callback = data;
+			data     = undefined;
+		}
+		return jQuery.ajax({
+			url: url,
+			type: method,
+			dataType: type,
+			data: data,
+			success: callback
+		});
+	}
+})
+</pre>
+
+参考链接：[jQuery整体架构-慕课网](http://www.imooc.com/code/3094)
+
+（完）
+</pre>
+
+		</textarea>
+	</div>
+
+	<div id="showContainer" style="background-color: #f5f5d5;border-radius: 1.5em;padding:1.5em;margin:1.5em;"></div>
+
+	<script type="text/javascript" src="../assets/js/lib/showdown/1.4.3/showdown.min.js"></script>
+	<script type="text/javascript">
+	/*
+		More Infomation: https://github.com/showdownjs/showdown
+	*/
+		// www.google.com => <a href="www.google.com">www.google.com</a>
+		showdown.setOption('simplifiedAutoLink', 'true'); 
+		showdown.setOption('strikethrough', 'true'); // ~~strikethrough~~ => <del>strikethrough</del>
+		showdown.setOption('tables', 'true');
+		// ![foo](foo.jpg =100x80)     simple, assumes units are in px
+		// ![bar](bar.jpg =100x*)      sets the height to "auto"
+		// ![baz](baz.jpg =80%x5em)  Image with width of 80% and height of 5em
+		showdown.setOption('parseImgDimensions', 'true');
+		showdown.setOption('omitExtraWLInCodeBlocks', 'true');
+
+
+		var converter = new showdown.Converter(),
+		textarea = document.querySelector('#markdownTextarea'),
+		showContainer = document.querySelector('#showContainer'),
+	    text      = textarea.value,
+	    html      = converter.makeHtml(text);
+	    showContainer.innerHTML = html;
+
+		textarea.onkeyup = function () {
+			text      = textarea.value;
+	    	html      = converter.makeHtml(text);
+	   	    showContainer.innerHTML = html;	
+		}
+	</script>
+</body>
+</html>

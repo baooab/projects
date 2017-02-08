@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.menu-top-container{
+			background-color: rgb(5, 86, 141);
+			border-radius: 4px;
+		}
+
+		#menu-top {
+			list-style: none;
+		    padding-top: 10px;
+		    padding-bottom: 10px;
+		}
+
+		#menu-top > .menu-item {
+			display: inline-block;
+		}
+	
+		#menu-top > .menu-item > a {
+			color:#CCC;
+    		font-weight: bold;
+    		text-decoration: none;
+    		padding: 6px 10px;
+    		-webkit-transition: all .2s ease-out;
+    		transition: all .2s ease-out;
+    		
+		}
+
+		#menu-top > .menu-item > a:hover {
+				box-shadow: inset 0 0 5px rgba(0,0,0, 0.4), rgba(255,255,255,0.1) 0 1px 0;
+			    border-radius: 4px;
+			    /*border: 1px solid rgba(0,0,0,0.25);*/
+    			text-shadow: rgba(0, 0, 0, 0.796875) 0 -1px 0, rgba(255, 255, 255, 0.296875) 0 0 10px;
+    			color:#FFF;
+		}
+	</style>
+
+</head>
+<body>
+	
+	<div class="menu-top-container">
+		<ul id="menu-top" class="menu">
+			<li class="menu-item">
+				<a href="http://jquery.com/download/">Download</a></li>
+			<li class="menu-item">
+				<a href="http://api.jquery.com/">API Documentation</a></li>
+			<li class="menu-item">
+				<a href="http://blog.jquery.com/">Blog</a></li>
+			<li class="menu-item">
+				<a href="http://plugins.jquery.com/">Plugins</a></li>
+			<li class="menu-item">
+				<a href="http://jquery.com/browser-support/">Browser Support</a></li>
+		</ul>
+	</div>
+
+</body>
+</html>

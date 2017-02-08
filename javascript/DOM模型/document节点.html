@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../js/util.js"></script>
+</head>
+
+<body>
+	<div>1 not ignore</div>
+	<div class="ignore">ignore</div>
+	<div>3 not ignore</div>
+
+	<button id="btn">button</button>
+<script>
+
+[].slice.call(document.querySelectorAll('div:not(.ignore)')).forEach(function (item) {
+	p(item.innerHTML);
+})
+
+p(document.getElementsByClassName('ignore')[0].innerHTML);
+
+
+var event = new Event('build');
+
+// 添加监听函数
+document.querySelector('#btn').addEventListener('build', function (e) { p('!'); }, false);
+
+// 触发事件
+document.querySelector('#btn').dispatchEvent(event);
+
+
+</script>	
+</body>
+</html>

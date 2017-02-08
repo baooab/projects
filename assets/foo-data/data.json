@@ -1,0 +1,11 @@
+{
+    count: 4,
+    items: [{
+        remote_file: "https://img1.doubanio.com/dae/rexxar/files/orders/orders-70dbdbcb1c.html",
+        uri: "douban://douban.com/orders[/]?.*"
+    }, {
+        remote_file: "https://img1.doubanio.com/dae/rexxar/files/related_doulists/related_doulists-1d7d99e1fb.html",
+        uri: "douban://douban.com/(tag|tv|movie|book|music)/(/w+)/related_doulists[/]?.*"
+    }   ],
+    deploy_time: "Fri, 04 Mar 2016 11:12:29 GMT"
+}

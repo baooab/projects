@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Zhang Bao's Personal Website</title>
+	<script src="../js/util.js"></script>
+
+<script>
+	var obj = {
+		'prop1': 1,
+		'prop2': 'value2',
+		'prop3': 3,
+	};
+	p(JSON.stringify(obj));
+
+	var selectedProperties = ['prop1', 'prop3'];
+	p(JSON.stringify(obj, selectedProperties));
+
+	p(JSON.stringify([{'question1':'answer1'}, {'question2':'answer2'}], ['question2']));
+
+	function callback(key, value) {
+		if (typeof value === 'number') {
+			value = value * 2;
+		}
+		// p("["+ key +"]:" + value);
+		return value;
+	}
+
+	p(JSON.stringify(obj, callback));
+
+	function f(key, value) {
+
+    
+  if (key === 'a') {
+    return value + 10;
+  } else {
+  	return value;
+  }
+}
+
+var o = JSON.parse('{"a":1,"b":{"a":123}}', f);
+p(o);
+
+
+</script>
+
+</head>
+<body>
+
+<div>
+	
+
+
+</body>
+</html>

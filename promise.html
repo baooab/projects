@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body {
+			background-color: rgba(0, 0, 0, .3);
+		}
+
+		.container {
+			max-width: 640px;
+			margin:0 auto;
+			text-align: center;
+		}
+
+		img {
+			width: 320px;
+			cursor: pointer;
+			border-radius: .5em;
+			border: 5px solid #666;
+		}
+	</style>
+</head>
+<body>
+
+	<div class="container"></div>
+
+	<script type="text/javascript">
+	var imageBaseUrl = 'assets/imgs/image_pub/',
+		imageUrl = imageBaseUrl + '0.jpg';
+		imageContainer = document.querySelector('.container');
+
+		// 用Promise包装一个图片加载的异步操作
+		function loadImageAsync(url) {
+			return new Promise(function (resolve, reject) {
+				var image = new Image();
+
+				image.onload = function () {
+					resolve(image);
+				};
+
+				image.onerror = function () {
+					reject(new Error('Could not load image at ' + url));
+				}
+
+				image.src = url;
+			})
+		}
+
+		// function getJSON(url) {
+		// 	var promise = new Promise(function (resolve, reject) {
+		// 		var client = new XMLHttpRequest();
+		// 		client.open('GET', url);
+		// 		client.onreadystatechange = handler;
+		// 		client.responseType = 'json';
+		// 		client.setRequestHeader('Accept', 'application/json');
+		// 		client.setRequestHeader('Access-Control-Allow-Origin', 'http://123.56.108.61')
+		// 		client.send();
+
+		// 		function handler() {
+		// 			if (this.readyState !== 4) {
+		// 				return;
+		// 			}
+		// 			if (this.status === 200) {
+		// 				resolve(this.response);	
+		// 			} else {
+		// 				reject(new Error(this.statusText));
+		// 			}
+		// 		}
+		// 	});
+
+		// 	return promise;
+		// }
+
+		loadImageAsync(imageUrl).then(function (image) {
+			imageContainer.appendChild(image);
+		}, function (error) {
+			console.error(error);
+		});
+
+		// getJSON('http://123.56.108.61/svn/repos/assets/foo-data/data.json').then(function (json) {
+		// 	alert(json);
+		// }, function (error) {
+		// 	console.error('出错了', error);
+		// })
+
+	</script>
+</body>
+</html>

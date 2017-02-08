@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>markdown-it.js Demo</title>
+	<link rel="stylesheet" href="default.min.css">
+	<script src="highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+	<style type="text/css">
+/*
+		body {
+			font-family: 'Courier New', 'Lucida Console';
+			font-size: 12px;
+		}
+
+		code {
+		    display: inline-block;
+		    padding-left: 5px;
+		    padding-right: 5px;
+		    font-size: 120%;
+		    background-color: pink;
+		    border-radius: 5px;
+		    margin: auto 3px;
+		    font-family:'Lucida Console';
+		    text-shadow: 0 1px 1px #FFF;
+		}
+
+		img {
+			border: 0.3em solid #e0dfcc;
+   		    border-radius: 1em;
+   		    width: 100%;
+		}
+*./
+	</style>
+</head>
+<body>
+	
+	<div id="markdownContainer" style="margin:0 auto;width: 695px;">
+		<textarea id="markdownTextarea" cols="96" rows="10">
+# Tools
+
+- ### [placehold.it（图片占位符）](http://www.placehold.it/)
+  使用：
+  https://placeholdit.imgix.net/~text?txtsize=33&txt=%E9%BB%98%E8%AE%A4%E5%9B%BE%E7%89%87&w=750&h=315
+- 
+
+```js\n console.log("hello"); \n```
+
+# C#教程
+
+- ### [Introduction to ASP.NET Web Programming Using the Razor Syntax (C#)](https://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c)
+
+- ### [WebPage CMS](http://webpagescms.com/)
+		</textarea>
+	</div>
+<!--
+	<div id="showContainer" style="background-color: #f5f5d5;border-radius: 1.5em;padding:1.5em;margin:1.5em;"></div> -->
+<div id="showContainer"></div>
+	<script type="text/javascript" src="../assets/js/lib/markdownit/8.0.0/markdown-it.min.js"></script>
+	<script type="text/javascript">
+	/*
+		More Infomation: https://github.com/markdown-it/markdown-it
+	*/
+		var iOptions = {
+			html:         true,
+			breaks:       true,
+			linkify:      true
+		};
+
+		var md = window.markdownit(iOptions),
+		showContainer = document.querySelector('#showContainer'),
+		textarea = document.querySelector('#markdownTextarea');
+		text      = textarea.value;
+
+		var html = md.render(text);
+ 		showContainer.innerHTML = html;
+
+ 		textarea.onkeyup = function () {
+			text      = textarea.value;
+	    	html      = md.render(text)
+	   	    showContainer.innerHTML = html;	
+		}
+
+	</script>
+</body>
+</html>

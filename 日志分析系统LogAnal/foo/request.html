@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+
+
+	?fromHosts[]=01ST-DP&starttime=2016-10-01 00:00&endtime=2016-10-12 23:59
+
+
+	<script type="text/javascript">
+		function queryString(para) {
+			var args = {},
+				tempObj,
+			    query = location.search.substring(1),
+			    pairs = query.split('&'),
+
+				pos = -1,
+				argName = '',
+				argValue = '';
+			for (var i = 0; i < pairs.length; i++) {
+				pos = pairs[i].indexOf('=');
+				if (pos === -1) {
+					continue;
+				} 
+				argName = pairs[i].substring(0, pos);
+				argValue = decodeURIComponent(pairs[i].substring(pos + 1));
+				args[argName] = argValue;
+			}
+			return args[para] ? args[para] : '';
+		}
+
+		console.log('"' + queryString(undefined) + '"');
+	</script>
+
+</body>
+</html>

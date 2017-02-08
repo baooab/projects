@@ -1,0 +1,46 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+
+  /*outline: 1px solid red !important;*/
+}
+
+body {
+    width: 1210px;
+    margin: 0 auto;
+}
+
+.title {
+    background-color: #33bebe;
+    padding: 30px 0 10px 10px;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #ffffff;
+}
+
+.app {
+    display: -webkit-flex;
+    display: flex;
+}
+
+.screenshot {
+    max-width: 460px;
+}
+
+.description {
+    max-width: 750px;
+    color: #7c8b88;
+    padding-left: 35px;
+    text-align: justify;
+    word-wrap: break-word;
+}
+
+.footer {
+    background-color: #cccccc;
+    color: #666666;
+    margin-top: 25px;
+    padding: 10px;
+    font-size: 12px;
+}

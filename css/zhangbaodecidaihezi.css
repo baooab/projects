@@ -1,0 +1,104 @@
+/** {
+    outline: 1px solid red;
+}*/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* 页面背景颜色 */
+    /*
+	background-color: #b3ab8a;*/
+	background-color: #f1f1f1;
+    direction: rtl;
+    /* 文字描边效果 */
+    -webkit-text-stroke: 0.5px;
+    -moz-text-stroke: 0.5px;
+    /* 字体和文字颜色 */
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "宋体", "Courier New", "Varela Round",sans-serif;
+    color: #34302d;
+
+    transition: all 2s ease-out;
+}
+
+/* 超文本链接样式 */
+a {
+    text-decoration: none;
+    color: #5fa134;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+article {
+    overflow: auto;
+}
+
+/* The purpose of it is to limit the max-width of the page and
+ * center content in case your user is looking at the page on a very large screen.
+*/
+.grid {
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding:10px;
+}
+
+.col-1 {
+    width: 8.33%;
+}
+.col-2 {
+    width: 16.66%;
+}
+.col-3 {
+    width: 25%;
+}
+.col-4 {
+    width: 33.33%;
+}
+.col-5 {
+    width: 41.66%;
+}
+.col-6 {
+    width: 50%;
+}
+.col-7 {
+    width: 58.33%;
+}
+.col-8 {
+    width: 66.66%;
+}
+.col-9 {
+    width: 75%;
+}
+.col-10 {
+    width: 83.33%;
+}
+.col-11 {
+    width: 91.66%;
+}
+.col-12 {
+    width: 100%;
+}
+
+@media only screen and (max-width: 640px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8,
+    .col-9, .col-10, .col-11, .col-12 {
+        width: 100%;
+    }
+}
+/*
+@media only screen and (min-width: 641px) and (max-width: 1024px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8,
+    .col-9, .col-10, .col-11, .col-12 {
+        width: 50%;
+    }
+}*/

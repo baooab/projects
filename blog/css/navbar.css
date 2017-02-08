@@ -1,0 +1,33 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  background: url(../index.png);
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+/* #1 图片大小自适应，且限定最大图片宽度  */
+img {
+  width: auto;
+  max-width: 493px;
+}
+
+@media (max-width: 768px) {
+  img {
+    width: 100%;
+  }
+}
+
+/* #2 make twitter bootstraps pre blocks scroll horizontally */
+pre code {
+    overflow-wrap: normal;
+    white-space: pre;
+}
+
+/* #4 对齐文字*/
+body {
+  text-align: justify;
+}

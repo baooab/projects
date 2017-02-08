@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>红楼梦 - 张宝的个人网站</title>
+	<!-- jQuery Mobile -->
+	<link rel="stylesheet" href="../assets/plug-in/jquery.mobile/1.4.5/css/themes/default/jquery.mobile.icons-1.4.5.min.css">
+	<link rel="stylesheet" href="../assets/plug-in/jquery.mobile/1.4.5/css/theme-classic.css">
+	<link rel="stylesheet" href="../assets/plug-in/jquery.mobile/1.4.5/css/themes/default/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="shortcut icon" href="../A-Dream-of-the-Red-Chamber-Favicon.png">
+	<script src="../assets/plug-in/jquery.mobile/1.4.5/js/jquery.js"></script>
+	<script src="../assets/plug-in/jquery.mobile/1.4.5/js/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+		$( document ).on( "pagecreate", function() {
+			// 自动切换到主题 e
+			;(function(){
+				var themeClass = 'e';
+
+				$( "#testpage" ).removeClass( "ui-page-theme-a ui-page-theme-b ui-page-theme-c ui-page-theme-d ui-page-theme-e" ).addClass( "ui-page-theme-" + themeClass );
+				$( "#ui-body-test" ).removeClass( "ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e" ).addClass( "ui-body-" + themeClass );
+				$( "#ui-bar-test, #ui-bar-form" ).removeClass( "ui-bar-a ui-bar-b ui-bar-c ui-bar-d ui-bar-e" ).addClass( "ui-bar-" + themeClass );
+				$( ".ui-collapsible-content" ).removeClass( "ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e" ).addClass( "ui-body-" + themeClass );
+				$( ".theme" ).text( themeClass );
+			})(); 
+
+			// $( "#theme-selector input" ).on( "change", function( event ) {
+			// 	var themeClass = $( "#theme-selector input:checked" ).attr( "id" );
+
+			// 	$( "#testpage" ).removeClass( "ui-page-theme-a ui-page-theme-b ui-page-theme-c ui-page-theme-d ui-page-theme-e" ).addClass( "ui-page-theme-" + themeClass );
+			// 	$( "#ui-body-test" ).removeClass( "ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e" ).addClass( "ui-body-" + themeClass );
+			// 	$( "#ui-bar-test, #ui-bar-form" ).removeClass( "ui-bar-a ui-bar-b ui-bar-c ui-bar-d ui-bar-e" ).addClass( "ui-bar-" + themeClass );
+			// 	$( ".ui-collapsible-content" ).removeClass( "ui-body-a ui-body-b ui-body-c ui-body-d ui-body-e" ).addClass( "ui-body-" + themeClass );
+			// 	$( ".theme" ).text( themeClass );
+			// });
+		});
+	</script>
+	<!-- vue.js -->
+	<script src="../assets/js/lib/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+<div data-role="page" id="testpage">
+
+	<div data-role="header">
+		<h1>红楼梦</h1>
+<!--		<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-icon-back ui-btn-icon-notext">返回</a>
+		<a href="#" class="ui-btn ui-corner-all ui-shadow ui-icon-gear ui-btn-icon-left">Button</a>
+ 		<div data-role="navbar">
+			<ul>
+				<li><a href="#" class="ui-btn-active ui-state-persist">Menu item 1</a></li>
+				<li><a href="#">Menu item 2</a></li>
+				<li><a href="#">Menu item 3</a></li>
+			</ul>
+		</div> -->
+	</div><!-- /header -->
+
+	<div id="page-content" class="ui-content" role="main">
+<!-- 
+  		<form class="ui-mini">
+			<div class="ui-field-contain" id="theme-selector">
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<legend>主题:</legend>
+					<label for="a">A</label>
+					<input type="radio" name="theme" id="a" checked>
+					<label for="b">B</label>
+					<input type="radio" name="theme" id="b">
+					<label for="c">C</label>
+					<input type="radio" name="theme" id="c">
+					<label for="d">D</label>
+					<input type="radio" name="theme" id="d">
+					<label for="e">E</label>
+					<input type="radio" name="theme" id="e">
+				</fieldset>
+			</div>
+		</form>   -->
+	
+		<div data-role="collapsible" data-content-theme="a">
+			<h4>曹雪芹其人</h4>
+			<p><img src="../assets/imgs/Cao-Xueqin3.jpg" alt="曹雪芹像"><b>Cáo Xuěqín</b> (<span class="IPA" style="white-space:nowrap">[tsʰǎu̯&nbsp;ɕy̯ètɕʰǐn]</span>; Chinese: <span xml:lang="zh" lang="zh">曹雪芹</span>); (1715 or 1724&nbsp;– 1763 or 1764) was a Chinese writer during the Qing dynasty. He is best known as the author of <i>Dream of the Red Chamber</i>, one of the Four Great Classical Novels of Chinese literature. His given name was <b>Cáo Zhān</b> (曹霑) and his courtesy name was <b>Mèngruǎn</b> (simplified Chinese: <span xml:lang="zh-Hans" lang="zh-Hans">梦阮</span>; traditional Chinese</a>: <span xml:lang="zh-Hant" lang="zh-Hant">夢阮</span>). ---- 来自<a href="https://en.wikipedia.org/wiki/Cao_Xueqin">《维基百科》</a></p>
+		</div>	
+
+ 		<div data-role="collapsible" data-content-theme="a">
+			<h4>{{ book.heading.title }}</h4>
+			<p>{{ book.heading.titleDetails }}</p>
+		</div>
+
+		<ul data-role="listview" data-inset="true" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+			<li v-for="chapter in book.chapters"><a href="{{ chapter.url }}" class="ui-btn ui-btn-icon-right ui-icon-carat-r">{{ chapter.title }}</a></li>
+		</ul>
+
+	</div><!-- /content -->
+
+	<div id="footer" data-role="footer" data-position="fixed">
+<!-- 		<div data-role="navbar">
+			<ul>
+				<li><a href="#">Menu item 1</a></li>
+				<li><a href="#" class="ui-btn-active ui-state-persist">Menu item 2</a></li>
+				<li><a href="#">Menu item 3</a></li>
+			</ul>
+		</div> -->
+		<h4>(c) 2016 Written by Zhang Bao. Powered by
+		<a href="http://jquerymobile.com/">jQuery Mobile 1.4.5</a>,
+		<a href="http://vuejs.org/guide/">vue.js 1.0.11</a>,
+		<a href="http://www.xuanshu.com/">选书网</a></h4>
+	</div>
+
+</div><!-- /page -->
+
+<script>
+	new Vue({
+		el: '#page-content',
+		data: {
+			book: {
+				heading: {
+					title: '红楼梦介绍',
+					titleDetails: '全本共一百二十回'	
+				},
+				chapters: [
+					{
+						title: '第一回 甄士隐梦幻识通灵 贾雨村风尘怀闺秀',
+						url: 'chapters/第一回-甄士隐梦幻识通灵-贾雨村风尘怀闺秀.html',
+						overview: ''
+					},
+					{
+						title: '第二回 贾夫人仙逝扬州城 冷子兴演说荣国府',
+						url: 'chapters/第二回-贾夫人仙逝扬州城-冷子兴演说荣国府.html',
+						overview: ''
+					}
+				]
+			}
+		}
+	});
+</script>
+
+</body>
+</html>

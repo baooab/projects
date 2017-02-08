@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/lib/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<div v-if="Math.random() > 0.5">
+			&gt; 0.5
+		</div>
+		<div v-else>
+			&le; 0.5
+		</div>
+	</div>
+
+	<div id="app2">
+		<div v-if="words === 'to be or not to be ?'">
+			{{ words }}<br />
+			that is a problem
+		</div>
+		<div v-else>
+			:(
+		</div>
+	</div>
+	
+	<div id="app3">
+		<template v-if="action === 'login'">
+			<h2>登录</h2>
+		</template>
+		<template v-if="action === 'register'">
+			<h2>注册</h2>
+		</template>
+		<input type="radio" name="action" v-model="action" value="login" selected>登录
+		<input type="radio" name="action" v-model="action" value="register">注册
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+		});
+
+		new Vue({
+			el: '#app2',
+			data: {
+				words: 'to be or not to be ?'				
+			}
+		});
+
+		new Vue({
+			el: '#app3',
+			data: {
+				action: 'login'				
+			}
+		});
+
+	</script>
+</body>
+</html>

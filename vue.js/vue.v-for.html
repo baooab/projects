@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/lib/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h2>{{ fourFamousLiteratureWorksTitle }}</h2>
+		<article v-for="literatureWork in fourFamousLiteratureWorks">
+				{{ $index + 1 }}、{{ literatureWork.name }}
+		</article>		
+	</div>
+
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				fourFamousLiteratureWorksTitle: '四大名著',
+				fourFamousLiteratureWorks: [
+					{ name: '红楼梦' },
+					{ name: '西游记'},
+					{ name: '水浒传'},
+					{ name: '三国演义'},
+				]
+			}
+		});
+	</script>
+</body>
+</html>

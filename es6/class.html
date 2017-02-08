@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		code {
+			background-color: pink;padding:.7em;border-radius: .5em;text-shadow: 0 1px 1px #000;text-shadow: 0 1px 0px #fff;
+		}
+
+		pre {
+			background-color: #000;color: #ccc;padding:1.5em;font-size: 1em;border-radius: 1.5em;font-family: courier new, Lucida Console;
+		}
+	</style>
+	<script type="text/javascript" src="util.js"></script>
+</head>
+<body>
+
+<p>1. 子类实例的构建，是基于对父类实例加工</p>
+
+<pre>
+class ColorPoint extends Point {
+	constructor(x, y, color) {
+		super(x, y);
+		this.color = color;
+	}
+
+	toString() {
+		return this.color + ' ' + super.toString();
+	}
+}
+</pre>
+
+<p>2. <code>ES6</code>明确规定，Class内部只有静态方法，没有静态属性</p>	
+
+<script type="text/javascript">
+	// 工具函数 
+	function p (a) {
+		console.log(a);
+	}
+
+	function Point1(x, y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	// Point1.prototype = {
+	// 	toValue() {
+	// 		return this.x + ', ' + this.y;
+	// 	},
+	// 	toString() {
+	// 		return '(' + this.x + ', ' + this.y + ')';
+	// 	}
+	// }
+
+	// 等同于
+
+	Object.assign(Point1.prototype, {
+		toValue() {
+			return this.x + ', ' + this.y;
+		},
+		toString() {
+			return '(' + this.x + ', ' + this.y + ')';
+		}
+	});
+
+	let p1 = new Point1(11, 12);
+	
+	c.l(p1.toString());
+	//c.l(p1.toValue());
+
+	///////////////////
+
+	const Point = class {
+		constructor(x, y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		toString() {
+			return '(' + this.x + ', ' + this.y + ')';
+		}
+
+		getClassName() {
+			return Point.name;
+		}
+
+	}
+
+	let p2 = new Point(3, 4);
+	let p3 = new Point(5, 6)
+
+	c.l(p2.toString());
+	c.l(p3.getClassName());
+
+	///////////////////
+
+	let person = new class {
+		constructor(name) {
+			this.name = name;
+		}
+
+		sayName() {
+			console.log(this.name);
+		}
+	}('张宝');
+
+	person.sayName();
+
+	/////// extends ////////////
+
+	class ColorPoint extends Point {
+		constructor(x, y, color) {
+			super(x, y);
+			this.color = color;
+		}
+
+		toString() {
+			return this.color + ' ' + super.toString();
+		}
+	}
+
+	// 子类实例的构建，是基于对父类实例加工
+	p((new ColorPoint(1, 1, 'pink')).toString()); 
+
+	// ECMAScript原生构造函数
+	// Bollean()
+	// Number()
+	// String()
+	// Array()
+	// Date()
+	// Function()
+	// RegExp()
+	// Error()
+	// Object()
+
+	// ES6明确规定，Class内部只有静态方法，没有静态属性
+</script>	
+
+</body>
+</html>

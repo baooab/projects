@@ -1,0 +1,47 @@
+/* add your CSS here */
+
+* {
+	box-sizing: border-box;
+}
+
+.animal-card {
+	width: 340px;
+	border: 1px solid #ccc;
+	margin: 0 auto;
+	-webkit-box-shadow: 10px 10px 22px 0px rgba(204,204,204,0.75);
+	-moz-box-shadow: 10px 10px 22px 0px rgba(204,204,204,0.75);
+	box-shadow: 10px 10px 22px 0px rgba(204,204,204,0.75);
+}
+
+.animal-title {
+	margin-left: 19px;
+}
+
+.animal-picture-wrapper {
+	text-align: center;
+}
+
+.animal-picture {
+	width: 300px;
+}
+
+.animal-description {
+	width: 300px;
+	border: 1px solid #ccc;
+	padding: 1em;
+	margin: .5em auto 19px;
+}
+
+.animal-interesting-fact {
+	font-style: italic;
+}
+
+.animal-favorite-item {
+	list-style: none;;
+	list-style-type: none;
+	padding-left: 0;
+}
+
+.animal-favorite-item-span{
+	font-weight: bold;
+}

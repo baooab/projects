@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../assets/js/lib/babel-core/5.8.24/browser.min.js"></script>
+</head>
+<body>
+	<script type="text/javascript" src="store.js"></script>
+	<script type="text/javascript" src="util.js"></script>
+	<script type="text/javascript">
+
+		let name = 'zhangbao';
+		let birth = '1992/03/05';
+		
+		let me = {
+			name,
+			birth,
+			intro() { c.l(`我叫${this.name}，我的生日在${this.birth}`); },
+			getIntro(iname, ibirth) { return {iname, ibirth}; }		
+		};
+
+		me.intro();
+		c.l(me.getIntro('Cao Xueqin', '保密'));
+
+		// store.set('username', 'zb');
+		// console.log(store.get('username'));
+		// store.remove('username');
+
+
+	</script>
+</body>
+</html>

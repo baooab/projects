@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/lib/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{ message }}</p>
+		<p>{{ message + ' by Zhang Bao' }}</p>
+		<p>{{ message.split('').reverse().join('') }}</p>
+		<input v-model="message">
+	</div>
+	<script src="vueapp.js"></script>
+</body>
+</html>

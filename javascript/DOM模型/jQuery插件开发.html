@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+
+</head>
+<body>
+	
+<a href="https://baidu.com">baidu.com</a>
+<a href="https://sogou.com">sogou.com</a>
+<a href="http://ruanyifeng.com">ruanyifeng.com</a>
+<script>
+
+(function($){
+	$.fn.showLinkLocation = function() {
+		return this.filter('a').append(function(){
+			return ' (' + this.href + ')';
+		});
+	};
+}(jQuery));
+
+// 用法
+$('a').showLinkLocation();
+
+</script>
+</body>
+</html>

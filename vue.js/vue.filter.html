@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="../assets/js/lib/vue/1.0.11/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		{{ worksTitle | uppercase }} <br />
+		{{ worksTitle.split('').reverse().join('') }}
+	</div>
+	
+	
+	<script>
+		new Vue({
+			el: '#app',
+			data: {
+				worksTitle: 'Four Great Classical Novels'
+			}
+		});
+	</script>
+</body>
+</html>
